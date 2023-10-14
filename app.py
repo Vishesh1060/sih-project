@@ -19,6 +19,7 @@ def services():
 @app.route('/',methods=['GET','POST'])
 def index():
     if request.method=='POST':
+        print('POST Data Received: Accessing Database')
         if request.form['brand']!='Device Brand':
             if request.form['model']!='Model Name':
                 device_data=search.device_spec(request.form['brand'],request.form['model'],1).to_string

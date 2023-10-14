@@ -7,14 +7,16 @@ watch_data=pd.read_csv('Smart watch prices.csv',encoding='latin-1')
 phone_brands = phone_data['Brand'].unique()
 laptop_brands = laptop_data['Company'].unique()
 watch_brands = watch_data['ï»¿Brand'].unique()
+search_flag=False
+
 
 def device_spec(brand,model,ch,*arg):
   if ch == 1:
     for bar in phone_brands:
       if bar == brand:
         device_specs = phone_data.loc[phone_data['Model'] == model]
+        search_flag=True
       else:
-         print('Not Found')
          pass
   if ch == 2:
     for bar in laptop_brands:
